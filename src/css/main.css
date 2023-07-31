@@ -1,0 +1,46 @@
+.Input
+{
+padding: 0;
+margin: 0;
+border: 0;
+
+}
+
+.Canvas
+{
+    padding: 0;
+    margin: 0;
+    border: 0;
+
+}
+.Floor
+{
+
+    padding: 0;
+margin: 0;
+border: 0;
+}
+
+.Lift
+{
+
+    padding: 0;
+margin: 0,20px,0,20px;
+border: 0;
+}
+body
+{
+    padding: 0;
+    margin: 0;
+    border: 0;
+
+}
+
+button
+{
+    text-align: center;
+    margin: 5px,5px,5px,5px;
+    background: Green;
+    color: white;
+}
+
