@@ -30,6 +30,7 @@ for( i=0;i<floor;i++)
     else
     element1.style.background = "yellow";
     element1.setAttribute("class","Floor");
+ 
     const buttonPressed = e => {
         MoveLift(e.target.id);  // Get ID of Clicked Element
       }
@@ -95,6 +96,7 @@ for(i=0;i<lift;i++)
    element2.style.height = "120";
    element2.style.background = "blue";
    element2.setAttribute("data-state","IDLE");
+   element2.setAttribute("data-Floor","0");
    element2.setAttribute("class","Lift");
 
 
@@ -103,12 +105,23 @@ for(i=0;i<lift;i++)
 
 async function MoveLift(des)
 {
+
+  
+  var a =new String(des);
+  var temp= a.substring(a.indexOf(':')+1);
+  if(document.querySelector('[data-floor="'+temp+'"]'))
+  return;
    var selectedlift = SelectLift();
+   if(selectedlift!=null)
+   {
+    selectedlift.setAttribute("data-floor",temp);
    selectedlift.setAttribute("data-state","MOVING");
-    var a =new String(des);
-   var temp= a.substring(a.indexOf(':')+1);
+    
   var  temp1=parseInt(selectedlift.style.top);
   var  temp3=parseInt(document.getElementById("DIV"+temp).style.top);
+
+  if(document.getElementsByName("rect").entries(x=>x.getAttribute("data-state")=="IDLE"))
+   
   if(temp1<=temp3)
   {
    for(var i=temp1;i<=temp3;i++)
@@ -132,11 +145,16 @@ async function MoveLift(des)
     }
 
   }
+
   selectedlift.setAttribute("data-state","IDLE");
+  
+  
+}
 }
 
 function  SelectLift()
 {
+
 for(i=0;i<NUMBER_OF_LIFT;i++)
 {
 if(document.getElementById("rect"+i).getAttribute("data-state")=="IDLE")
