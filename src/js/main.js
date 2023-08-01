@@ -1,12 +1,15 @@
 
-
+ NUMBER_OF_LIFT=0;
+ NUMBER_OF_FLOOR=0;
 function OnCLickButton()
 {
 
     document.getElementById("Canvas").innerHTML="";
 
 var floor=document.getElementById("floor").value ;
+NUMBER_OF_FLOOR=floor;
 var lift =document.getElementById("lift").value;
+NUMBER_OF_LIFT=lift;
 var top =50;
 var x_pos=5;
 var y_pos=55;
@@ -91,6 +94,7 @@ for(i=0;i<lift;i++)
    element2.style.width = size;
    element2.style.height = "120";
    element2.style.background = "blue";
+   element2.setAttribute("data-state","IDLE");
    element2.setAttribute("class","Lift");
 
 
@@ -99,7 +103,8 @@ for(i=0;i<lift;i++)
 
 async function MoveLift(des)
 {
-   var selectedlift = document.getElementById("rect0");
+   var selectedlift = SelectLift();
+   selectedlift.setAttribute("data-state","MOVING");
     var a =new String(des);
    var temp= a.substring(a.indexOf(':')+1);
   var  temp1=parseInt(selectedlift.style.top);
@@ -127,5 +132,22 @@ async function MoveLift(des)
     }
 
   }
+  selectedlift.setAttribute("data-state","IDLE");
+}
+
+function  SelectLift()
+{
+for(i=0;i<NUMBER_OF_LIFT;i++)
+{
+if(document.getElementById("rect"+i).getAttribute("data-state")=="IDLE")
+{
+
+  return document.getElementById("rect"+i);
+  
+
+}
+
+}
+alert("All lift are Moving, Please wait...");
 
 }
