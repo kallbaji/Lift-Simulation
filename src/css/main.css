@@ -6,6 +6,14 @@ border: 0;
 
 }
 
+@property --DoorOpen
+{
+initial-value: Closed;
+inherits: false;
+syntax: '<string>';
+
+}
+
 .Canvas
 {
     padding: 0;
@@ -32,6 +40,9 @@ display:flex
     display:flex;
 border: 0;
 }
+
+
+
 body
 {
     padding: 0;
@@ -49,3 +60,20 @@ button
    
 }
 
+.Anime {
+    width: 50px;
+    animation-name: Open;
+    animation-timing-function: linear;
+    
+    animation-duration: 5s;
+   
+   
+  
+  }
+
+  @keyframes Open {
+    0%   {width: 50px;}
+  50%  {width:0px}
+   100%{width: 50px;} 
+  }
+  
