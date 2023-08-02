@@ -93,10 +93,10 @@ btnDown.style.left =(document.getElementById("DIV0").offsetLeft);
    lbl.innerHTML="Floor " +FloorNUmber ;
    lbl.style.fontWeight="bold";
    lbl.style.position="fixed";
-   lbl.style.left=document.getElementById("DIV"+i).offsetLeft+document.getElementById("DIV"+i).offsetWidth;
-   lbl.style.top=document.getElementById("DIV"+i).offsetTop+document.getElementById("DIV"+i).offsetHeight/2;
+   lbl.style.width=50;
    document.getElementById("Canvas").appendChild(lbl);
-   
+   lbl.style.left=document.getElementById("DIV"+i).offsetLeft+document.getElementById("DIV"+i).offsetWidth-50;
+   lbl.style.top=document.getElementById("DIV"+i).offsetTop+document.getElementById("DIV"+i).offsetHeight/2;
    
 
 
