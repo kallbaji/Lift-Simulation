@@ -56,8 +56,8 @@ else
     document.getElementById("DIV"+i).appendChild(btnDown);
     document.getElementById("DIV"+i).appendChild(btnUP);
 }
-btnUP.style.left =  (document.getElementById("DIV0").offsetLeft)-500;
-btnDown.style.left =(document.getElementById("DIV0").offsetLeft)-500;
+btnUP.style.left =  (document.getElementById("DIV0").offsetLeft);
+btnDown.style.left =(document.getElementById("DIV0").offsetLeft);
 
    y_pos=y_pos+120;
     btnUP.id="btnUP:"+i;
@@ -93,8 +93,8 @@ btnDown.style.left =(document.getElementById("DIV0").offsetLeft)-500;
    lbl.innerHTML="Floor " +FloorNUmber ;
    lbl.style.fontWeight="bold";
    lbl.style.position="fixed";
-   lbl.style.left=document.getElementById("DIV"+i).offsetLeft+1000;
-   lbl.style.top=document.getElementById("DIV"+i).offsetTop+60;
+   lbl.style.left=document.getElementById("DIV"+i).offsetLeft+document.getElementById("DIV"+i).offsetWidth;
+   lbl.style.top=document.getElementById("DIV"+i).offsetTop+document.getElementById("DIV"+i).offsetHeight/2;
    document.getElementById("Canvas").appendChild(lbl);
    
    
