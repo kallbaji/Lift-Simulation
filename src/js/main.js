@@ -20,7 +20,7 @@ var size= 50;
 for( i=0;i<floor;i++)
 {
 
-    var x = document.createElement("div");
+    var x = document.createElement("meta");
     x.id="DIV" +i;
     document.getElementById("Canvas").appendChild(x);
     var element1= document.getElementById("DIV" +i);
@@ -106,7 +106,7 @@ var y_pos=50;
 var size= 1000/lift-90;
 for(i=0;i<lift;i++)
 {
-    var x =document.createElement("div");
+    var x =document.createElement("meta");
     x.id="rect"+i;
     document.getElementById("Canvas").appendChild(x);
    var element2= document.getElementById("rect"+i);
