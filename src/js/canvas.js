@@ -5,7 +5,7 @@ requestCount = 0;
 processnumber = 0;
 id=0;
 
-window.onload = function(){
+function CanvasLoad(){
 
 
   document.getElementById("Canvas").innerHTML = "";
