@@ -3,37 +3,30 @@
   <link rel="stylesheet" type="text/css" href="css/main.css"/>
 </head>
 <body>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-
+  <div class="Input">
+    <form method="get" action="canvas.html">
+      <label> Number of floor :</label>
+  
+      <input type="number" id="floor" required placeholder="Enter floor Count" min="2">
+      
+      <br></br>
+      
+      <label>  Number of lift :</label>
+      
+      <input type="number" id="lift" required placeholder="Enter lift Count" min="1" >
+      
+      <br></br>
+      <input class="Button" type="submit" onclick="OnSubmitClick()"/>
+             
+         
+        </form>
   
   
-  <meta class="Input"content="width=device-width, initial-scale=1.0"  name="Input">
-
-
-    <label>
-    Number of floor 
-      </label>
-    <input id="floor" >
+  
     
-    </input>>
-        <label>
-            Number of lift
-              </label>
-        <input id="lift" >
+  </div>
     
-            </input>>
-    
-        <button name="Generate Canvas" onclick="OnCLickButton()" >
-            Generate Canvas
-        </button>
-      </meta>
-    <meta id="Canvas" content="width=device-width, initial-scale=1.0" class="Canvas">
-    
-    </meta>
-
-</meta>
 <script src="js/main.js"></script>
 </body>
 

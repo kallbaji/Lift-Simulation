@@ -1,10 +1,26 @@
 .Input
 {
-padding: 0;
-margin: 0;
-border: 0;
+    
+ 
+        text-align: center;
+        
+        position:fixed;
+   top:50%;
+   left:50%;
+   width:250px;
+   transform: translate(-50%, -50%);    
+    
+   border-radius: 5%;
+        
+        border: 3px solid black;
+        
+        box-shadow: 10px 10px 16px black ;
+
+        background-color:lightblue;
+        
 
 }
+
 
 @property --DoorOpen
 {
@@ -14,14 +30,8 @@ syntax: '<string>';
 
 }
 
-.Canvas
-{
-    padding: 0;
-    margin: 0;
-    border: 0;
-    display:flex
 
-}
+
 .Floor
 {
 
@@ -49,6 +59,15 @@ body
     margin: 0;
     border: 0;
 
+}
+
+.Button
+{
+    text-align: center;
+    margin: 5px,5px,5px,5px;
+    background: Green;
+    color: white;
+   
 }
 
 button
