@@ -149,9 +149,9 @@ function CanvasLoad(){
 async function MoveLift(des) {
 
 
-  
-
+document.getElementById(des).style.background="red";
   var a = new String(des);
+  
   var temp = a.substring(a.indexOf(':') + 1);
   if (document.querySelector('[data-floor="' + temp + '"]'))
   {
@@ -162,9 +162,9 @@ async function MoveLift(des) {
     var asd1 = new String(asd);
     var asd2 = asd1.substring(asd1.indexOf(':') + 1);
     var asd3 = document.getElementById("Door" + asd2);
-    if(presentLift.getAttribute("data-state")=="MOVING")
+    if(presentLift.getAttribute("data-state")=="OPENING"||presentLift.getAttribute("data-state")=="IDLE")
     {
-     
+      presentLift.setAttribute("data-state","OPENING");
       asd3.style.animationPlayState = "paused";
 
       
@@ -192,6 +192,13 @@ async function MoveLift(des) {
       clearInterval(id);
       asd3.style.animationPlayState = "running"
       presentLift.setAttribute("data-state","IDLE") ;
+      var tempup=document.getElementById("btnUP:"+temp)
+      if(tempup!=null)
+          tempup.style.background="green";
+            var tempdown=document.getElementById("btnDown:"+temp)
+            if(tempdown!=null)
+            tempdown.style.background="green";;
+
 
     } else {
       pos++; 
@@ -201,12 +208,12 @@ async function MoveLift(des) {
   }
 
     }
-    else
-    {
-    presentLift.setAttribute("data-state", "MOVING");
-    asd3.setAttribute("class", "Anime");
-    asd3.addEventListener("animationend", animationEndHandler);
-    }
+    // else
+    // {
+    // presentLift.setAttribute("data-state", "OPENING");
+    // asd3.setAttribute("class", "Anime");
+    // asd3.addEventListener("animationend", animationEndHandler);
+    // }
     return;
   }
     var selectedlift = SelectLift(des);
@@ -239,12 +246,17 @@ async function MoveLift(des) {
 
     }
 
-
-
+var tempup=document.getElementById("btnUP:"+temp)
+if(tempup!=null)
+    tempup.style.background="green";
+      var tempdown=document.getElementById("btnDown:"+temp)
+      if(tempdown!=null)
+      tempdown.style.background="green";
     var temp4 = selectedlift.id;
     var temp5 = new String(temp4);
     var temp6 = temp5.substring(temp5.indexOf(':') + 1);
     var temp7 = document.getElementById("Door" + temp6);
+    selectedlift.setAttribute("data-state", "OPENING");
     temp7.setAttribute("class", "Anime");
     temp7.addEventListener("animationend", animationEndHandler);
 
