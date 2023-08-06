@@ -87,11 +87,11 @@ function CanvasLoad(){
     var FloorNUmber = NUMBER_OF_FLOOR - i;
     lbl.innerHTML = "Floor " + FloorNUmber;
     lbl.style.fontWeight = "bold";
-    lbl.style.position = "fixed";
+    lbl.style.position = "relative";
     lbl.style.width = 50;
-    document.getElementById("Canvas").appendChild(lbl);
+    document.getElementById("DIV"+i).appendChild(lbl);
     lbl.style.left = document.getElementById("DIV" + i).offsetLeft + document.getElementById("DIV" + i).offsetWidth - 50;
-    lbl.style.top = document.getElementById("DIV" + i).offsetTop + document.getElementById("DIV" + i).offsetHeight / 2;
+    lbl.style.top = 60;
 
 
 
@@ -131,7 +131,7 @@ function CanvasLoad(){
     document.getElementById("rect:" + i).appendChild(DoorA);
     // document.getElementById("rect"+i).appendChild(DoorB);
     var element2 = document.getElementById("rect:" + i);
-    element2.style.position = "fixed"
+    element2.style.position = "absolute"
     element2.style.left = x_pos;
     element2.style.top = y_pos;
     x_pos = x_pos + 90;
