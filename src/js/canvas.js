@@ -12,6 +12,7 @@ function CanvasLoad(){
 
   var floor = NUMBER_OF_FLOOR;
   var lift =  NUMBER_OF_LIFT ;
+  
   var top = 50;
   var x_pos = 20;
   var y_pos = 20;
@@ -19,9 +20,10 @@ function CanvasLoad(){
   for (i = 0; i < floor; i++) {
 
     var x = document.createElement("meta");
-    x.id = "DIV" + i;
+    var FloorNUmber = NUMBER_OF_FLOOR - i;
+    x.id = "DIV" + FloorNUmber;
     document.getElementById("Canvas").appendChild(x);
-    var element1 = document.getElementById("DIV" + i);
+    var element1 = document.getElementById("DIV" + FloorNUmber);
     element1.style.width = "1000px";
     element1.style.position = "absolute";
     element1.style.height = "120px";
@@ -42,20 +44,20 @@ function CanvasLoad(){
     btnUP.style.position = "absolute"
     btnDown.style.position = "absolute"
     if (i == 0) {
-      document.getElementById("DIV" + i).appendChild(btnUP);
+      document.getElementById("DIV" + FloorNUmber).appendChild(btnUP);
     }
     else if (i == (floor - 1)) {
-      document.getElementById("DIV" + i).appendChild(btnDown);
+      document.getElementById("DIV" + FloorNUmber).appendChild(btnDown);
     }
     else {
-      document.getElementById("DIV" + i).appendChild(btnDown);
-      document.getElementById("DIV" + i).appendChild(btnUP);
+      document.getElementById("DIV" + FloorNUmber).appendChild(btnDown);
+      document.getElementById("DIV" + FloorNUmber).appendChild(btnUP);
     }
-    btnUP.style.left = (document.getElementById("DIV0").offsetLeft);
-    btnDown.style.left = (document.getElementById("DIV0").offsetLeft);
+    btnUP.style.left = (document.getElementById("DIV"+FloorNUmber).offsetLeft);
+    btnDown.style.left = (document.getElementById("DIV"+FloorNUmber).offsetLeft);
 
     y_pos = y_pos + 120;
-    btnUP.id = "btnUP:" + i;
+    btnUP.id = "btnUP:" + FloorNUmber;
     btnUP.style.borderRadius = "50%";
 
 
@@ -69,7 +71,7 @@ function CanvasLoad(){
     btnUP.style.color = "white"
     btnUP.innerHTML = "up"
 
-    btnDown.id = "btnDown:" + i;
+    btnDown.id = "btnDown:" + FloorNUmber;
     btnDown.style.borderRadius = "50%";
 
 
@@ -84,19 +86,19 @@ function CanvasLoad(){
     btnDown.addEventListener('click', buttonPressed);
 
     var lbl = document.createElement("label");
-    var FloorNUmber = NUMBER_OF_FLOOR - i;
+    
     lbl.innerHTML = "Floor " + FloorNUmber;
     lbl.style.fontWeight = "bold";
     lbl.style.position = "relative";
     lbl.style.width = 50;
-    document.getElementById("DIV"+i).appendChild(lbl);
-    lbl.style.left = document.getElementById("DIV" + i).offsetLeft + document.getElementById("DIV" + i).offsetWidth - 50;
+    document.getElementById("DIV"+FloorNUmber).appendChild(lbl);
+    lbl.style.left = document.getElementById("DIV" + FloorNUmber).offsetLeft + document.getElementById("DIV" + FloorNUmber).offsetWidth - 50;
     lbl.style.top = 60;
 
 
 
   }
-  var firstfloor=NUMBER_OF_FLOOR-1;
+  var firstfloor=1;
   var x_pos = document.getElementById("DIV"+firstfloor).offsetLeft + 90;
   var y_pos = document.getElementById("DIV"+firstfloor).offsetTop+20;
   var size = 1000 / lift - 90;
@@ -287,16 +289,30 @@ function animationEndHandler() {
 
 function SelectLift(parfloor) {
 
+var jaya=NUMBER_OF_FLOOR+1;
+ var choosenlift;
   for (i = 0; i < NUMBER_OF_LIFT; i++) {
     if (document.getElementById("rect:" + i).getAttribute("data-state") == "IDLE") {
+      var lift=document.getElementById("rect:" + i);
+      var liftfloor= lift.getAttribute("data-floor");
+      var numberParFloor= parseInt(parfloor.substring(parfloor.indexOf(':') + 1));
+      var diff=liftfloor-numberParFloor;
 
-      return document.getElementById("rect:" + i);
+      if(diff<0)
+      diff*=-1;
+    if(diff<jaya)
+    {choosenlift=lift;
+      jaya=diff;
+    } 
 
 
     }
 
   }
-  if (!QueueRequest.includes(parfloor, processnumber)) {
+if(choosenlift!=undefined ||choosenlift!=null )
+{return choosenlift;
+}
+  else if (!QueueRequest.includes(parfloor, processnumber)) {
     QueueRequest[requestCount] = parfloor;
     requestCount++;
 
